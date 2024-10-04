@@ -1,0 +1,24 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Section {
+  id          Int      @id @default(autoincrement())
+  title       String
+  paragraph1  String
+  paragraph2  String
+  imageSrc    String
+}
+
+model MenuItem {
+  id       Int      @id @default(autoincrement())
+  title    String
+  subItems String   // Almacena los subelementos como una cadena JSON
+}
